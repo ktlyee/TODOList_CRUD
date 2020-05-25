@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a81368914c.js'></script>
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap" rel="stylesheet">
+    <title>TODO_List</title>
+</head>
+
+<body>
+    <h1>
+        <span class="styling">TODO</span>List
+    </h1>
+    <form action="/" method="POST">
+        <div class="input_div">
+            <input class="input" type="text" placeholder="What Do You Want to Do ..." name="content">
+            <button class="addButton">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </form>
+
+    <div class="container">
+        <% todoTasks.forEach(details => { %>
+            <div class="item">
+                <input type="text" class="item_input" value="<%= details.content %>">
+                <a href="/edit/<%= details._id %>">
+                    <button class="editButton">EDIT</button>
+                </a>
+                <a href="/remove/<%= details._id %>">
+                    <button class="removeButton">REMOVE</button>
+                </a>
+            </div>
+            <% }) %>
+    </div>
+
+</body>
+
+</html>
